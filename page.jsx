@@ -1,7 +1,7 @@
-
+'use client';
 import { useState } from "react";
-import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "../components/ui/card";
+import { Button } from "../components/ui/button";
 
 export default function ArkExpressRide() {
   const [formData, setFormData] = useState({
@@ -19,17 +19,7 @@ export default function ArkExpressRide() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await fetch("/api/book", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(formData),
-    });
-    const result = await response.json();
-    if (result.success) {
-      window.location.href = result.checkoutUrl || "/success";
-    } else {
-      alert("Booking failed. Please try again.");
-    }
+    alert("This would normally submit your booking and handle payment.");
   };
 
   return (
